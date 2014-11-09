@@ -38,7 +38,7 @@ for i=3:64
         %Calculate Zenrik's code
         valit=Zernike_main(imgname);
         mat(i,j,8:9)=valit;
-        mat(i,j,10)=charit(i-2);
+        mat(i,j,10)=charit(i);
         
     end
 end
