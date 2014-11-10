@@ -19,7 +19,7 @@ end
 mat=zeros(70*1200,9);
 cnt=1;
 chit=zeros(70*1500,1);
-for i=3:4
+for i=3:64
     varit='/home/aka/Ubuntu/Project/SMAI/actual/Font/';
     varit=strcat(varit,listing(i).('name'));
     img=dir(varit);
@@ -100,8 +100,7 @@ for k = 1 : CC.NumObjects           % Loop through all blobs.
     matit(1,8:9)=valit;
         
     imshow(subImage);
+    matit = matit';
     result=svmclassifier(matit,modelit,chit);
 end
 end
-
-

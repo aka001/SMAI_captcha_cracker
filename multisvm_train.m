@@ -18,7 +18,7 @@ for k=1:numClasses
     %where 1 is the current class and 0 is all other classes
     G1vAll=(GroupTrain==u(k));
     models(k) = svmtrain(TrainingSet,G1vAll);
-    disp(models(k));
+  %  disp(models(k));
 end
 
 %classify test cases
