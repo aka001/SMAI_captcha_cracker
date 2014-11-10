@@ -51,12 +51,9 @@ p = logical(not(p));
 tic
 [~, AOH, PhiOH] = Zernikmoment(p,n,m);      
 Elapsed_time = toc;
-disp(AOH);
-disp(PhiOH);
 %xlabel({['A = ' num2str(AOH)]; ['\phi = ' num2str(PhiOH)]});
-disp(A);
 
-M=[~ AOH PhiOH]
+M=[~ AOH PhiOH];
 
 %{
 p = rgb2gray(imread(Ait));

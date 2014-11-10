@@ -52,7 +52,7 @@ for iiit=1:1000
 
 prompt = 'Enter the file path of the input file : ';
 str = input(prompt, 's');
-if strcmp(str,'quit')==1
+if str=='quit'
     break;
 end
 I = imread(str);
@@ -86,21 +86,8 @@ for k = 1 : CC.NumObjects           % Loop through all blobs.
     end
 	% Display the image with informative caption.
 	figure;
-    
-    %calculating 7 transforms
-    matit=zeros(1,9);
-    valit=feature_vec(imgname);
-    doit=size(valit);
-    doit=doit(1);
-    p=valit';
-    matit(1,1:7)=p;
-    
-    %calculating Zernik's moments
-    valit=Zernike_main(imgname);
-    matit(1,8:9)=valit;
-        
-    imshow(subImage);
-    result=svmclassifier(matit,modelit,chit);
+    result=svmclassifier(
+	imshow(subImage);
 end
 end
 

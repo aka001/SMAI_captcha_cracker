@@ -56,5 +56,5 @@ M7=(3*n21-n03)*(n30+n12)*[(n30+n12)^2-3*(n21+n03)^2]-(n30+3*n12)*(n21+n03)*[3*(n
 
 
 % The vector M is a column vector containing M1,M2,....M7
-M=[M1    M2     M3    M4     M5    M6    M7]'
+M=[M1    M2     M3    M4     M5    M6    M7]';
 %and this is the Feature vector
