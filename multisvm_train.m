@@ -12,12 +12,13 @@ u=unique(GroupTrain);
 numClasses=length(u);
 %result = zeros(length(TestSet(:,1)),1);
 
+options.MaxIter = 10000;
 %build models
 for k=1:numClasses
-    %Vectorized statement that binarizes Group
+    %Vectorized statement tt binarizes Group
     %where 1 is the current class and 0 is all other classes
     G1vAll=(GroupTrain==u(k));
-    models(k) = svmtrain(TrainingSet,G1vAll);
+    models(k) = svmtrain(TrainingSet,G1vAll,'Options',options,'tolkkt',1e-1);
   %  disp(models(k));
 end
 

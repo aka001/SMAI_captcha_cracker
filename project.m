@@ -1,3 +1,4 @@
+%{
 listing=dir('/home/aka/Ubuntu/Project/SMAI/actual/Font/*');
 sz=size(listing);
 sz=sz(1);
@@ -26,6 +27,7 @@ for i=3:64
     szit=size(img);
     szit=szit(1);
     %mat=zeros(szit,10);
+    szit=szit/10;
     for j=3:szit
         imgname=strcat(varit,'/');
         imgname=strcat(imgname,img(j).('name'));
@@ -44,13 +46,27 @@ for i=3:64
         cnt=cnt+1;
     end
 end
-mat=mat(1:cnt-1,9);
-chit=chit(1:cnt-1);
+
+cnt=cnt-1;
+mat=mat(1:cnt,1:9);
+chit=chit(1:cnt);
 modelit=multisvm_train(mat,chit);
+
+
+dlmwrite('matit.txt',mat);
+dlmwrite('chit.txt',chit);
+%}
+%sprintf(mat);
+
+matit=dlmread('matit.txt');
+chit=dlmread('chit.txt');
+disp('hie');
+modelit=multisvm_train(matit,chit);
+disp('not hie');
 
 for iiit=1:1000
 
-prompt = 'Enter the file path of the input file : ';
+%prompt = 'Enter the file path of the input file : ';
 str = input(prompt, 's');
 if strcmp(str,'quit')==1
     break;
