@@ -60,9 +60,7 @@ dlmwrite('chit.txt',chit);
 
 matit=dlmread('matit.txt');
 chit=dlmread('chit.txt');
-disp('hie');
-modelit=multisvm_train(matit,chit);
-disp('not hie');
+modelit=multisvm_train(mat,chit);
 
 for iiit=1:1000
 
@@ -116,7 +114,6 @@ for k = 1 : CC.NumObjects           % Loop through all blobs.
     matit(1,8:9)=valit;
         
     imshow(subImage);
-    matit = matit';
     result=svmclassifier(matit,modelit,chit);
 end
 end

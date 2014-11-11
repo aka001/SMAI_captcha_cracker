@@ -10,17 +10,17 @@ numClasses=length(u);
 %disp(m);
 %disp(n);
 flag = 0;
-for j=1:size(TestSet,2)
+for j=1:size(TestSet,1)
     flag = 0;
     for k=1:numClasses
-        if(svmclassify(models(k),TestSet(j,:)))
+        if(group = svmclassify(models(k),TestSet(j,:)))
             flag = 1;
             break;
         end
     end
     if(flag)
-        result(j) = u(k);
-        fprintf('%d\n', u(k));
+        result(j) = group;
+        fprintf('%d\n', group);
     else
         result(j) = -1;
         fprintf('No Match for this letter found\n');

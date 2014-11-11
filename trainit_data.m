@@ -26,7 +26,7 @@ for i=3:64
     szit=size(img);
     szit=szit(1);
     %mat=zeros(szit,10);
-    szit=szit/15;
+    szit=szit/20;
     for j=3:szit
         imgname=strcat(varit,'/');
         imgname=strcat(imgname,img(j).('name'));
@@ -49,7 +49,8 @@ end
 cnt=cnt-1;
 mat=mat(1:cnt,1:9);
 chit=chit(1:cnt);
+disp('hie')
 %modelit=multisvm_train(mat,chit);
-
-dlmwrite('matit.txt',mat);
+disp('not hie');
+dlmwrite('matit.txt',matit);
 dlmwrite('chit.txt',chit);
