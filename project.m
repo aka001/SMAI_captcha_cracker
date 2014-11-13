@@ -60,11 +60,13 @@ dlmwrite('chit.txt',chit);
 
 matit=dlmread('matit.txt');
 chit=dlmread('chit.txt');
-modelit=multisvm_train(mat,chit);
+mytree=treefit(matit, chit, 'method', 'classification', 'splitmin', 2, 'prune', 'off', 'splitcriterion', 'deviance');
+%treedisp(mytree);
+%modelit=multisvm_train(mat,chit);
 
 for iiit=1:1000
 
-%prompt = 'Enter the file path of the input file : ';
+prompt = 'Enter the file path of the input file : ';
 str = input(prompt, 's');
 if strcmp(str,'quit')==1
     break;
@@ -102,7 +104,7 @@ for k = 1 : CC.NumObjects           % Loop through all blobs.
 	figure;
     
     %calculating 7 transforms
-    matit=zeros(1,9);
+    matit=zeros(1,7);
     valit=feature_vec(imgname);
     doit=size(valit);
     doit=doit(1);
@@ -110,10 +112,14 @@ for k = 1 : CC.NumObjects           % Loop through all blobs.
     matit(1,1:7)=p;
     
     %calculating Zernik's moments
+    %{
     valit=Zernike_main(imgname);
     matit(1,8:9)=valit;
+    %}
         
     imshow(subImage);
-    result=svmclassifier(matit,modelit,chit);
+    estimate1=treeval(mytree,matit);
+    disp(estimate1);
+    %result=svmclassifier(matit,modelit,chit);
 end
 end

@@ -1,4 +1,4 @@
-listing=dir('/home/aka/Ubuntu/Project/SMAI/actual/Font/');
+listing=dir('/home/aka/Ubuntu/Project/SMAI/actual/Font/*');
 sz=size(listing);
 sz=sz(1);
 charit=[];
@@ -39,20 +39,18 @@ for i=3:64
         mat(cnt,1:7)=p;
         
         %Calculate Zenrik's code
-        %{
         valit=Zernike_main(imgname);
         mat(cnt,8:9)=valit;
-        %}
         chit(cnt,1)=charit(i);
         cnt=cnt+1;
     end
 end
 
 cnt=cnt-1;
-mat=mat(1:cnt,1:7);
+mat=mat(1:cnt,1:9);
 chit=chit(1:cnt);
 disp('hie')
 %modelit=multisvm_train(mat,chit);
 disp('not hie');
-dlmwrite('matit.txt',mat);
+dlmwrite('matit.txt',matit);
 dlmwrite('chit.txt',chit);
