@@ -105,7 +105,7 @@ for k = 1 : CC.NumObjects           % Loop through all blobs.
     
     %calculating 7 transforms
     matit=zeros(1,7);
-    valit=feature_vec(imgname);
+    valit=feature_vec(subImage);
     doit=size(valit);
     doit=doit(1);
     p=valit';
